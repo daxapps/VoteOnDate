@@ -13,6 +13,7 @@
 		E097BD221E70567000D4F590 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097BD211E70567000D4F590 /* MessagesViewController.swift */; };
 		E097BD251E70567100D4F590 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E097BD231E70567100D4F590 /* MainInterface.storyboard */; };
 		E097BD271E70567100D4F590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E097BD261E70567100D4F590 /* Assets.xcassets */; };
+		E097BD331E70B36000D4F590 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097BD321E70B36000D4F590 /* EventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E097BD241E70567100D4F590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E097BD261E70567100D4F590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E097BD281E70567100D4F590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E097BD321E70B36000D4F590 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				E097BD211E70567000D4F590 /* MessagesViewController.swift */,
 				E097BD231E70567100D4F590 /* MainInterface.storyboard */,
+				E097BD321E70B36000D4F590 /* EventViewController.swift */,
 				E097BD261E70567100D4F590 /* Assets.xcassets */,
 				E097BD281E70567100D4F590 /* Info.plist */,
 			);
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E097BD221E70567000D4F590 /* MessagesViewController.swift in Sources */,
+				E097BD331E70B36000D4F590 /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
