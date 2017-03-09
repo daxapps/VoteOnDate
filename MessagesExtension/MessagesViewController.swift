@@ -83,7 +83,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         //6: create a blank default message layout
         let layout = MSMessageTemplateLayout()
-//        layout.image = render(dates: dates)
+        layout.image = render(dates: dates)
         layout.caption = "I voted"
         message.layout = layout
         
@@ -104,6 +104,50 @@ class MessagesViewController: MSMessagesAppViewController {
         return dateFormatter.string(from: date)
     }
     
+    func render(dates: [Date]) -> UIImage {
+        // define our 20-point padding
+        let inset: CGFloat = 20
+        
+        // create the attributes for drawing using Dynamic Type so that we respect the user's font choices
+        let attributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .body), NSForegroundColorAttributeName: UIColor.darkGray]
+        
+        // make a single string out of all the dates
+        var stringToRender = ""
+        
+        dates.forEach {
+            stringToRender += DateFormatter.localizedString(from: $0, dateStyle: .long, timeStyle: .short) + "\n"
+        }
+        
+        // trim the last line break, then create an attributed string by merging the date string and the attributes
+        let trimmed = stringToRender.trimmingCharacters(in: .whitespacesAndNewlines)
+        let attributedString = NSAttributedString(string: trimmed, attributes: attributes)
+        
+        // calculate the size required to draw the attributed string, then add the inset to all edges
+        var imageSize = attributedString.size()
+        imageSize.width += inset * 2
+        imageSize.height += inset * 2
+        
+        // create an image format that uses @3x scale on an opaque background
+        let format = UIGraphicsImageRendererFormat()
+        format.opaque = true
+        format.scale = 3
+        
+        // create a renderer at the correct size, using the above format
+        let renderer = UIGraphicsImageRenderer(size: imageSize, format: format)
+        
+        // render a series of instructions to `image`
+        let image = renderer.image { ctx in
+            // draw a solid white background
+            UIColor.white.set()
+            ctx.fill(CGRect(origin: CGPoint.zero, size: imageSize))
+            
+            // now render our text on top, using the insets we created
+            attributedString.draw(at: CGPoint(x: inset, y: inset))
+        }
+        
+        // send the resulting image back
+        return image
+    }
     
     
     override func didReceiveMemoryWarning() {
